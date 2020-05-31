@@ -1,0 +1,130 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	
+<h:head>
+</h:head>	
+	
+<h:body>	
+<h:form>
+
+
+	
+	<p:dialog header= "Cadastro de Funcionarios" modal= "true"  visible= "true">
+
+		<p:panelGrid columns="4">
+			<p:outputLabel value="MATRICULA: " /> 
+		    <p:inputText value="#{ControleBean.entidade.matricula}"/>
+			
+			<p:outputLabel value="NOME: " />
+			<p:inputText value="#{ControleBean.entidade.nome}"/>
+						
+			<p:outputLabel value="CPF: " />
+			<p:inputText value="#{ControleBean.entidade.cpf}"/>
+						
+			<p:outputLabel value="RG: " />
+			<p:inputText value="#{ControleBean.entidade.rg}"/>
+				
+			<p:outputLabel value="EMAIL: " />
+			<p:inputText value="#{ControleBean.entidade.email}"/>
+						
+			<p:outputLabel value= "CARGO: " />
+			<p:inputText value="#{ControleBean.entidade.cargo}"/>
+			
+			<p:outputLabel value= "SALARIO: " />
+			<p:inputText value="#{ControleBean.entidade.salario}"/>
+			
+			
+			<p:outputLabel value="Tel-Celular: " />
+			<p:inputText value="#{ControleBean.telefone.celular}"/>
+			
+			<p:outputLabel value="Tel-Recado: " /> 
+		    <p:inputText value="#{ControleBean.telefone.recado}"/>
+						
+			<p:outputLabel value="Tel-Comercial: " />
+			<p:inputText value="#{ControleBean.telefone.comercial}"/>
+						
+			
+			
+	
+			<p:commandButton value="Inserir" update="@form" 
+				actionListener="#{ControleBean.inserirEntidade}" />
+						
+				<p:commandButton value="Alterar" update="@form" 
+				actionListener="#{ControleBean.alterarEntidade}" />
+				
+				<p:commandButton value="Remover" update="@form" 
+				actionListener="#{ControleBean.remover}" />
+				
+				  	<p:commandButton value=" Endereco"
+					onclick="PF('Pesquisar').show();" />
+					
+					
+				  	<p:commandButton value="Pesquisar" update="@form" 
+				actionListener="#{ControleBean.pesquisar}" />
+				
+				
+				  	
+				  	<p:dataTable var="Funcionarios" value="#{JogoBean.listaJogos}">
+				<p:column headerText="MATRICULA">
+					<h:outputText value="#{entidade.matricula}" />
+				</p:column>
+
+				<p:column headerText="NOME">
+					<h:outputText value="#{entidade.nome}" />
+				</p:column>
+
+				<p:column headerText="ENDERECO">
+					<h:outputText value="#{entidade.cpf}" />
+				</p:column>
+
+				<p:column headerText="TELEFONE">
+					<h:outputText value="#{entidade.rg}" />
+				</p:column>
+				
+				
+
+			</p:dataTable>
+				
+              
+				
+		</p:panelGrid>
+		
+		</p:dialog>
+		
+	  <!-- Cadastrar Endereco -->
+		
+		<p:dialog header="Cadastro de Endereco" modal="true" visible="false"
+			widgetVar="Pesquisar">
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Cep: " /> 
+		    <p:inputText value="#{EnderecoBean.endereco.cep}"/>
+			
+			<p:outputLabel value="TipoLogradouro: " />
+			<p:inputText value="#{EnderecoBean.endereco.tipologradouro}"/>
+						
+			<p:outputLabel value="Logradouro: " />
+			<p:inputText value="#{EnderecoBean.endereco.logradouro}"/>
+						
+			<p:outputLabel value="Bairro: " />
+			<p:inputText value="#{EnderecoBean.endereco.bairro}"/>
+				
+			<p:outputLabel value="Cidade: " />
+			<p:inputText value="#{EnderecoBean.endereco.cidade}"/>
+			
+			<p:outputLabel value="UF: " />
+			<p:inputText value="#{ControleBean.endereco.uf}"/>
+			
+			
+			<p:commandButton value="Salvar" update="@form" 
+				actionListener="#{EnderecoBean.salvar}" />
+			
+		</p:panelGrid>
+		</p:dialog>
+
+</h:form>
+</h:body>
+</html>
